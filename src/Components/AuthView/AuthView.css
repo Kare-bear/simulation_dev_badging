@@ -1,0 +1,17 @@
+.auth_main{
+    background-image: linear-gradient(99deg, #ff70a6,
+    #ff9770 40%, #ffd670 73%, #e9ff70); 
+    height: 100vh;
+}
+
+.auth_main_container{
+    position: absolute;
+    left: 40vw;
+    top: 40vh;
+    background-image: linear-gradient(99deg, #ff70a6,
+    #ff9770 40%, #ffd670 73%, #e9ff70);
+    
+    box-shadow: 0 10px 20px 0 rgba(0,0,0,0.1), 0 6px 6px 0 rgba(0,0,0,0.2);
+    width: 20vw;
+    height: 25vh;
+}

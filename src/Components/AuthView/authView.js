@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './AuthView.css';
 
 
 export default class AuthView extends Component{
