@@ -29,6 +29,18 @@ app.use(
     })
 );
 
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(new Auth0Strategy({
+    doimain: ,
+    clientSecret: ,
+    ClientID: , 
+    callbackURL: '/Login'
+}, (accessToken, refreshToken, extraParams, profile, done) => {
+    return done(null, profile);
+}));
+
 app.get('/api/test', (req, res) => {
     const dbInstance = req.app.get("db");
 
