@@ -32,14 +32,32 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-passport.use(new Auth0Strategy({
-    doimain: ,
-    clientSecret: ,
-    ClientID: , 
-    callbackURL: '/Login'
-}, (accessToken, refreshToken, extraParams, profile, done) => {
-    return done(null, profile);
+passport.use(
+    new Auth0Strategy(
+        {
+            domain: process.env.AUTH_DOMAIN,
+            clientSecret: process.env.CLIENT_SECRET,
+            clientID: process.env.CLIENT_ID, 
+            callbackURL: '/login'
+        },
+        (accessToken, refreshToken, extraParams, profile, done) => {
+            return done(null, profile);
 }));
+
+passport.serializeUser((user, done) => done(null, user));
+passport.deserializeUser((user, done) => done(null, user));
+
+app.get(
+    '/login', 
+    passport.authenticate("auth0", {
+    successRedirect: "http://localhost:3000/",
+    failureRedirect: "/login"
+}));
+
+app.get('/api/me', (req, res, next) => {
+    if(req.user) res.json(req.user);
+    else res.redirect('/login');
+});
 
 app.get('/api/test', (req, res) => {
     const dbInstance = req.app.get("db");
