@@ -16,9 +16,9 @@ class App extends Component {
   }
   componentDidMount() {
     axios
-    .get('/api/test')
+    .get('/api/me')
     .then(response => {
-      console.log(response);
+      console.log(response); 
       this.setState({test: response.data});
     })
     .catch(console.log);
@@ -28,14 +28,11 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
         </header>
-
-        <div>
-          {this.state.test && <div>{}</div>}
-          {routes}
-        </div>        
+          {routes}     
       </div>
     );
   }
 }
 
 export default App;
+//left off on youtube review chapter 14
