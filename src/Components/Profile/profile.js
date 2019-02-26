@@ -14,7 +14,7 @@ export default class Profile extends Component{
                     <button>Update</button>
                     <button>Cancel</button>
                 </div>
-
+                
                 <div className='profile_container'>
                     <h5>First Name</h5>
                     <input type = "text"/>
