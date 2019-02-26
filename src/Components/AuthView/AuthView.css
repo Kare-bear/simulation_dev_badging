@@ -25,6 +25,7 @@
 .auth_button{
     position: absolute;
     top: 23vh;
+    right: 2.8vw;
     border-radius: 1px;
     color: #f2f2f2;
     width: 14vw;
